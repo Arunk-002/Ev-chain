@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        {% for info in cs %}
-            {{info.name}}
-            {{info.place}}
-        {% endfor %}
+    <h1>hi
     </h1>
-    <a href="register">register</a>
+    <form action="" method="post">
+        {%csrf_token %}
+        {{form}}
+        <button type="submit">sign in</button>
+    </form>
 </body>
 </html>
