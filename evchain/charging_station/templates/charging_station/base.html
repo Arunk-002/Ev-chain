@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hi</h1>
+    {% for info in cs %}
+        <h1>
+            {{ info.name }}
+            {{ info.place }}
+
+        </h1>
+    {% endfor %}
+
 </body>
 </html>
