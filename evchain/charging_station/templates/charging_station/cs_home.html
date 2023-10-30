@@ -6,13 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        {% for info in cs %}
+    {% for info in cs %}
             {{info.name}}
             {{info.place}}
         {% endfor %}
-    </h1>
-    <a href="register">register</a>
-    <a href="{% url 'login_page'  %}">Login</a>
+
+
+        <h1>hi cs</h1>
 </body>
 </html>

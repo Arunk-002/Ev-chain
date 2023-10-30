@@ -29,3 +29,5 @@ class Charging_Station(models.Model):
 class Login(models.Model):
     username=models.CharField(blank=False,max_length=15)
     password=models.CharField(blank=False,validators=[MinLengthValidator(8),regx_password],max_length=15)
+
+    
