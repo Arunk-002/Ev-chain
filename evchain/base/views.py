@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 def index(request):
-    return render(request,"base/base.html")
+    return render(request,"base/index.html")
 
 def registration(request):
     if request.method=='POST':
