@@ -239,7 +239,7 @@ body {
   color: var(--white);
 }
 
-.w-100 { width: 100%; }
+/* .w-100 { width: 100%; } */
 
 .has-before,
 .has-after {
@@ -1418,8 +1418,9 @@ body {
   .hero-list { margin-block-end: 40px; }
 
   .hero-banner {
-    right: 28%;
-    width: 1100px;
+    top: 30%;
+    right: 55%;
+    width: 500px;
   }
 
 

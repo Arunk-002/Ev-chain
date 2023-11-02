@@ -63,7 +63,7 @@
           </div>
 
           <figure class="hero-banner" data-reveal="right">
-            <img src="./assets/images/hero-banner.png" width="1116" height="766" alt="Bike" class="w-100">
+            <img src="{% static 'base/images/hero-banner.png'%}" width="506" height="766" alt="cs image" class="w-100">
           </figure>
 
         </div>
@@ -81,10 +81,10 @@
         <div class="container">
 
           <figure class="about-banner" data-reveal="left">
-            <img src="./assets/images/about-banner-1.jpg" width="380" height="382" loading="lazy" alt="about banner"
+            <img src="{% static 'base/images/about-banner-1.jpg'%}" width="380" height="382" loading="lazy" alt="about banner"
               class="w-100 img-1">
 
-            <img src="./assets/images/about-banner-2.jpg" width="347" height="349" loading="lazy" alt="about banner"
+            <img src="{% static 'base/images/about-banner-2.jpg'%}" width="347" height="349" loading="lazy" alt="about banner"
               class="w-100 img-2">
           </figure>
 
@@ -200,7 +200,7 @@
           </ul>
 
           <div class="stats-banner" data-reveal>
-            <img src="./assets/images/stats-banner.jpg" width="1398" height="565" loading="lazy" alt="video banner"
+            <img src="{%static 'base/images/stats-banner.jpg' %}" width="1398" height="565" loading="lazy" alt="video banner"
               class="img-cover">
 
             <button class="play-btn" aria-label="play video">
@@ -277,7 +277,7 @@
             </ul>
 
             <figure class="service-banner img-holder" style="--width: 805; --height: 510;">
-              <img src="./assets/images/service-banner.png" width="805" height="510" loading="lazy" alt="service banner"
+              <img src="{% static 'base/images/service-banner.png' %}" width="805" height="510" loading="lazy" alt="service banner"
                 class="img-cover">
             </figure>
 
@@ -362,7 +362,7 @@
           </div>
 
           <figure class="cta-banner" data-reveal="right">
-            <img src="./assets/images/cta-banner.jpg" width="330" height="206" loading="lazy" alt="cta banner"
+            <img src="{% static 'base/images/cta-banner.jpg'%}" width="330" height="206" loading="lazy" alt="cta banner"
               class="img-cover">
           </figure>
 
@@ -370,8 +370,7 @@
       </section>
 
 
-
-
+      
 
       <!-- 
         - #BLOG
@@ -402,7 +401,8 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder" style="--width: 770; --height: 550;">
-                  <img src="./assets/images/blog-1.jpg" width="770" height="550" loading="lazy"
+                  <img src="{% static 'base/images/blog-1.jpg'%}
+                  " width="770" height="550" loading="lazy"
                     alt="Energy Star Certified Electric Vehicle Chargers" class="img-cover">
                 </figure>
 
@@ -441,7 +441,7 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder" style="--width: 770; --height: 550;">
-                  <img src="./assets/images/blog-2.jpg" width="770" height="550" loading="lazy"
+                  <img src="{% static 'base/images/blog-2.jpg'%}" width="770" height="550" loading="lazy"
                     alt="Charging Solution For Electric Car & Hybrid Car" class="img-cover">
                 </figure>
 
@@ -480,7 +480,7 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder" style="--width: 770; --height: 550;">
-                  <img src="./assets/images/blog-3.jpg" width="770" height="550" loading="lazy"
+                  <img src="{% static 'base/images/blog-3.jpg'%}" width="770" height="550" loading="lazy"
                     alt="Home Charging Station For A Electric Vehicless" class="img-cover">
                 </figure>
 
