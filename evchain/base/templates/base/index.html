@@ -93,12 +93,12 @@
             <p class="section-subtitle has-before" id="about-label">What We Do!</p>
 
             <h2 class="h2 section-title">
-              Our mission is to put an electric vehicle charge
+              Our mission is to put an electric vehicle to charge
             </h2>
 
             <p class="section-text">
-              Charge your electric vehicle at home using one of our smart home char ge solutions or gain access to over
-              3,000 public charging.
+              Book a Charge for your electric vehicle by gaining access to over
+              3,000 charging stations.
             </p>
 
             <div class="about-wrapper">
@@ -120,9 +120,9 @@
               <div class="about-card">
 
                 <div class="title-wrapper">
-                  <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
+                  <ion-icon name="bag-check-outline" aria-hidden="true"></ion-icon>
 
-                  <h3 class="card-title">No Driving License</h3>
+                  <h3 class="card-title"> Secure Payment</h3>
                 </div>
 
                 <p class="card-text">
@@ -133,7 +133,7 @@
 
             </div>
 
-            <ul class="about-list">
+            <!-- <ul class="about-list">
 
               <li class="about-item">
                 <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
@@ -147,7 +147,7 @@
                 <span class="span">Enjoy a hassle-free ride by charging just for 3 hours.</span>
               </li>
 
-            </ul>
+            </ul> -->
 
             <a href="#" class="btn btn-primary">
               <span class="span">Read More</span>
@@ -177,7 +177,7 @@
               <h3 class="h3 card-title">650m</h3>
 
               <p class="card-text">
-                Check charge status remotely through Ether app
+                Charges completed
               </p>
             </li>
 
@@ -185,15 +185,15 @@
               <h3 class="h3 card-title">564+</h3>
 
               <p class="card-text">
-                Check charge status remotely through Ether app
+                Happy customers
               </p>
             </li>
 
             <li class="stats-card">
-              <h3 class="h3 card-title">125k</h3>
+              <h3 class="h3 card-title">10+</h3>
 
               <p class="card-text">
-                Check charge status remotely through Ether app
+                Countries
               </p>
             </li>
 
@@ -204,7 +204,9 @@
               class="img-cover">
 
             <button class="play-btn" aria-label="play video">
-              <ion-icon name="play" aria-hidden="true"></ion-icon>
+              <a href="https://youtu.be/4cVWy4yrB3E?si=mfehHI3nVtqv8RS5" target="_blank">
+                <ion-icon name="play" aria-hidden="true"></ion-icon>
+              </a>
             </button>
           </div>
 
@@ -376,22 +378,22 @@
         - #BLOG
       -->
 
-      <section class="section blog" aria-labelledby="blog-label">
+      <section class="section blog" id="login-section" aria-labelledby="blog-label">
         <div class="container">
 
           <div class="title-wrapper" data-reveal>
 
             <div>
-              <p class="section-subtitle has-before" id="blog-label">Fresh News</p>
+              <p class="section-subtitle has-before" id="blog-label">Join Us</p>
 
-              <h2 class="h2 section-title">Our recent article for the electric vehicle systems</h2>
+              <h2 class="h2 section-title">Join us on our journey and Let's Travel together. </h2>
             </div>
 
-            <a href="#" class="btn btn-secondary">
+            <!-- <a href="#" class="btn btn-secondary">
               <span class="span">View More Blog</span>
 
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-            </a>
+            </a> -->
 
           </div>
 
@@ -408,9 +410,9 @@
 
                 <div class="card-content">
 
-                  <time class="publish-date" datetime="2022-06-03">03 Jun 2022</time>
+                  <p class="publish-date">Charging Station</p>
 
-                  <ul class="card-meta-list">
+                  <!-- <ul class="card-meta-list">
 
                     <li class="card-meta-item">
                       <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
@@ -424,11 +426,11 @@
                       <span class="span">2 Comments</span>
                     </li>
 
-                  </ul>
+                  </ul> -->
 
                   <h3 class="h5">
-                    <a href="#" class="card-title">
-                      Energy Star Certified Electric Vehicle Chargers
+                    <a href="{% url 'registration'%}" class="card-title">
+                      Register your Charging Station with Us
                     </a>
                   </h3>
 
@@ -447,9 +449,9 @@
 
                 <div class="card-content">
 
-                  <time class="publish-date" datetime="2022-06-03">03 Jun 2022</time>
+                  <p class="publish-date">User</p>
 
-                  <ul class="card-meta-list">
+                  <!-- <ul class="card-meta-list">
 
                     <li class="card-meta-item">
                       <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
@@ -463,11 +465,11 @@
                       <span class="span">2 Comments</span>
                     </li>
 
-                  </ul>
+                  </ul> -->
 
                   <h3 class="h5">
                     <a href="#" class="card-title">
-                      Charging Solution For Electric Car & Hybrid Car
+                      Sign in with Us and explore the Possiblities
                     </a>
                   </h3>
 
@@ -480,15 +482,14 @@
               <div class="blog-card">
 
                 <figure class="card-banner img-holder" style="--width: 770; --height: 550;">
-                  <img src="{% static 'base/images/blog-3.jpg'%}" width="770" height="550" loading="lazy"
+                  <img src="{% static 'base/images/login-woman.jpg'%}" width="770" height="550" loading="lazy"
                     alt="Home Charging Station For A Electric Vehicless" class="img-cover">
                 </figure>
 
                 <div class="card-content">
+                  <p class="publish-date">Login</p>
 
-                  <time class="publish-date" datetime="2022-06-03">03 Jun 2022</time>
-
-                  <ul class="card-meta-list">
+                  <!-- <ul class="card-meta-list">
 
                     <li class="card-meta-item">
                       <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
@@ -502,11 +503,14 @@
                       <span class="span">2 Comments</span>
                     </li>
 
-                  </ul>
+                  </ul> -->
 
                   <h3 class="h5">
+                    <a href="{% url 'login_page'%}" class="card-title">
+                     -> Charging Station ? Login!
+                    </a>
                     <a href="#" class="card-title">
-                      Home Charging Station For A Electric Vehicless
+                     -> User ? Login!
                     </a>
                   </h3>
 

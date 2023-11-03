@@ -357,12 +357,13 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--yellow-green);
-  padding-block: 25px;
+  padding-block: 18px;
   z-index: 4;
 }
 
 .header.active {
   position: fixed;
+  height: 20%;
   animation: slideIn 0.5s ease forwards;
 }
 
@@ -399,7 +400,7 @@ body {
 
 .navbar.active {
   visibility: visible;
-  height: 224px;
+  height: 200px;
   transition-duration: 0.5s;
 }
 

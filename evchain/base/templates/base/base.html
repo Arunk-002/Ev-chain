@@ -63,7 +63,7 @@
     <div class="container">
 
       <a href="#" class="logo">
-        <img src="{% static 'base/images/logo.png'%}" width="160" height="50" alt="volti home">
+        <img src="{% static 'base/images/logo.png'%}" width="160" height="50" alt="Ev Chain home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -82,11 +82,11 @@
           </li>
 
           <li class="navbar-item">
-            <a href="{% url 'login_page'%}" target="_blank" class="navbar-link">login</a>
+            <a href="#login-section" class="navbar-link">login</a>
           </li>
 
           <li class="navbar-item">
-            <a href="{% url 'registration'%}" target="_blank" class="navbar-link">registration</a>
+            <a href="#login-section"  class="navbar-link">registration</a>
           </li>
 
         </ul>
@@ -121,70 +121,6 @@
 
 
   {% endblock%}
-
-
-
-  
-      <!-- 
-        - #CONTACT
-      -->
-
-      <section class="contact" aria-label="contact" data-reveal="right">
-        <div class="container">
-
-          <ul class="contact-list">
-
-            <li>
-              <div class="contact-card">
-                <div class="card-icon">
-                  <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h6">Hot Line</h3>
-
-                  <a href="tel:+01123457890" class="card-subtitle">+(01) 1234-57-890</a>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div class="contact-card">
-                <div class="card-icon">
-                  <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h6">E-mail Address</h3>
-
-                  <a href="mailto:voltiinfo@gmail.com" class="card-subtitle">voltiinfo@gmail.com</a>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div class="contact-card">
-                <div class="card-icon">
-                  <ion-icon name="compass-outline" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="h6">Our Location</h3>
-
-                  <address class="card-subtitle">101 Avenue, S.E. USA</address>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-    </article>
-  </main>
-
-
 
 
 
