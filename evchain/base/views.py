@@ -16,23 +16,29 @@ def registration(request):
         username=request.POST['username']
         password=request.POST['password']
         c_s=Charging_Station(name=name,address=address,phone=phone,email_id=email)
-        login=Login(username=username,password=password)
-        login.save()
         c_s.save()
+        login=Login(username=username,password=password,cs_login=c_s)# saved the charging station object to the forien key cs_login in the login table
+        login.save()
+        
         return redirect("login_page")
     return render(request,"base/registration.html")
 
 
 def login_page(request):
     if request.method=='POST':
-        form=LoginForm(request.POST)
-        if form.is_valid():
+        form=LoginForm(request.POST)#render out the loginform.
+        if form.is_valid():#checking if the login form has valid data.
             username=form.cleaned_data['username']
             password=form.cleaned_data['password']
+            #from the form saved the username and password to respective variables.
             try:
-                if Login.objects.get(username=username,password=password):
+                cs_login_object=Login.objects.get(username=username,password=password)# retrieved the login object with corresponding ,
+                # username and password and saved it to cs_login_object.
+                loginObj_cs=cs_login_object.cs_login # accessed the corresponding Charging_station using the cs_login_object.
+                if loginObj_cs and loginObj_cs.join_request=="Accept": # checked if the charging station is accepted or not
                     return redirect('cshome')
-
+                else:
+                    return redirect('index')
             except Login.DoesNotExist:
                 return render(request, 'base/login.html', {'form': form, 'error': 'Invalid credentials'})
             
