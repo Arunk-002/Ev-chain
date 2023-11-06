@@ -1,6 +1,7 @@
 from charging_station.models import Charging_Station,Login
 from charging_station.forms import UserRegisterForm,LoginForm
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 # Create your views here.
 
@@ -36,12 +37,14 @@ def login_page(request):
                 # username and password and saved it to cs_login_object.
                 loginObj_cs=cs_login_object.cs_login # accessed the corresponding Charging_station using the cs_login_object.
                 if loginObj_cs and loginObj_cs.join_request=="Accept": # checked if the charging station is accepted or not
+                    messages.add_message(request,messages.SUCCESS,"welocome Home")
                     return redirect('cshome')
                 else:
-                    return redirect('index')
+                    messages.add_message(request,messages.WARNING,"Kindly wait your charging station is not verified")
             except Login.DoesNotExist:
-                return render(request, 'base/login.html', {'form': form, 'error': 'Invalid credentials'})
-            
+                messages.add_message(request,messages.ERROR,"Check you Username and Password!!")
+                return render(request, 'base/login.html', {'form': form})
+
         else:
             form=LoginForm()        
     return render(request,"base/login.html")
