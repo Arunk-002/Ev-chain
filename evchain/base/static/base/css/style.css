@@ -456,7 +456,7 @@ body {
   color: var(--black);
 }
 
-.hero-banner { margin-block-end: -15%; }
+.hero-banner { margin-block-end: -55%; }
 
 
 
@@ -1493,6 +1493,6 @@ body {
     font-weight: var(--fw-700);
   }
 
-  .hero-banner { right: 35%; }
+  .hero-banner { right: 50%; }
 
 }
