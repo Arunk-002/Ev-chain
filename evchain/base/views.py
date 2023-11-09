@@ -20,7 +20,6 @@ def registration(request):
         c_s.save()
         login=Login(username=username,password=password,cs_login=c_s)# saved the charging station object to the forien key cs_login in the login table
         login.save()
-        
         return redirect("login_page")
     return render(request,"base/registration.html")
 
@@ -35,8 +34,9 @@ def login_page(request):
             try:
                 cs_login_object=Login.objects.get(username=username,password=password)# retrieved the login object with corresponding ,
                 # username and password and saved it to cs_login_object.
-                loginObj_cs=cs_login_object.cs_login # accessed the corresponding Charging_station using the cs_login_object.
-                if loginObj_cs and loginObj_cs.join_request=="Accept": # checked if the charging station is accepted or not
+                charging_station_object=cs_login_object.cs_login # accessed the corresponding Charging_station using the cs_login_object.
+                request.session['cs_id']=charging_station_object.id
+                if charging_station_object and charging_station_object.join_request=="Accept": # checked if the charging station is accepted or not
                     messages.add_message(request,messages.SUCCESS,"welocome Home")
                     return redirect('cshome')
                 else:
