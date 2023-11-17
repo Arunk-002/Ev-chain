@@ -14,9 +14,45 @@
         </div>
     {% endfor %}    
    
-
+<!-- 
         <h1>hi {{cs_info.name}}</h1><p>
         
-        {{cs_info.address}}
+        {{cs_info.address}} -->
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Your Webpage</title>
+    <style>
+        body {font-family: Arial, sans-serif;}
+        .section {margin-bottom: 20px;}
+        .section h2 {color: #333;}
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Update Status</h2>
+        <form action="/update-status" method="post">
+            <label for="status">Status:</label><br>
+            <input type="text" id="status" name="status"><br>
+            <input type="submit" value="Update Status">
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Customer Reviews</h2>
+        <div id="reviews">
+            <!-- Customer reviews will be loaded here -->
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Facilities</h2>
+        <div id="facilities">
+            <!-- List of facilities will be loaded here -->
+        </div>
+    </div>
+</body>
+</html>
+
 </body>
 </html>
