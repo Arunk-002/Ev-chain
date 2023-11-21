@@ -21,7 +21,6 @@ regx_phone=RegexValidator(
 #this ensures that the user can input only 10 digits and it will be digits rather than text   
 
 class Charging_Station(models.Model):
-   
     name=models.CharField(blank=False,max_length=50)
     address = models.TextField(blank=False, max_length=100, default='Your_Default_Value')
     phone = models.CharField(blank=False,max_length=10,validators=[regx_phone])
