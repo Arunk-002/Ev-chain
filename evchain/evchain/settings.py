@@ -130,4 +130,4 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 300
 
 
-AUTH_USER_MODAL="charging_station.Charging_station"
+AUTH_USER_MODEL="base.BaseUser"
