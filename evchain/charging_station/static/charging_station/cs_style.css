@@ -522,12 +522,22 @@ a {
 .payments h1{
   font-size: 1.5rem;
 }
+.status-img{
+  width: 30px;
+  display: inline-flex;
+  margin-left: 28px;
+}
 .payments {
   display: flex;
   flex-direction: column;
   margin-top: 2.5rem;
 }
-
+.status-form{
+  display: contents;
+}
+.status-form button{
+  margin-right: 14px;
+}
 .payment {
   display: flex;
   align-items: center;

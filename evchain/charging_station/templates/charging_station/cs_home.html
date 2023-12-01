@@ -9,12 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{message}}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
+    
     <h1>Hi {{ cs_info.cmp_name }}</h1>
     <p>Status: {{ cs_info.status }}</p>
     <p>Username: {{ base_cs_info.username }}</p>
@@ -27,12 +22,13 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>{{ cs_info.cmp_name }} Home</title>
+    <title >{{ cs_info.cmp_name|upper }} Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="{% static 'charging_station/cs_style.css' %}">
 
 </head>
 <body>
+
 <!-- partial:index.partial.html -->
 <div class="app">
 	<header class="app-header">
@@ -71,7 +67,7 @@
 		</div> -->
 		<div class="app-header-actions">
 			<button class="user-profile">
-				<span>{{ cs_info.cmp_name }}</span>
+				<span>{{ cs_info.cmp_name|upper }}</span>
 				<span>
 					<img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
 				</span>
@@ -289,16 +285,26 @@
 		</div>
 		<div class="app-body-sidebar">
 			<section class="payment-section" id="Reviews">
-				<h2>STATUS</h2>
+				<h2>STATUS
+					{% if cs_info.status == "Available" %}
+						<img class="status-img" src="{% static 'charging_station/images/check.png' %}" alt="currently open">
+					{% endif %}
+					{% if cs_info.status == "Unavailable" %}
+						<img class="status-img" src="{% static 'charging_station/images/failure.png' %}" alt="currently closed">
+					{% endif %}
+				</h2>
 				<div class="payment-section-header">
 					<p>Make your station up to go !</p>
 					<div>
-						<button class="card-button open">
-							<img src="{% static 'charging_station/images/open.png' %}" alt="open">
-						</button>
-						<button class="card-button  close">
-							<img src="{% static 'charging_station/images/closed.png' %}" alt="closed">
-						</button>
+						<form class="status-form" action="{% url 'cshome' base_cs_info.id %}" method="post">
+							{% csrf_token %}
+							<button class="card-button open " name="status" value="Available" type="submit">
+								<img src="{% static 'charging_station/images/open.png' %}" alt="open">
+							</button>
+							<button class="card-button  close " name="status" value="Unavailable" type="submit">
+								<img src="{% static 'charging_station/images/closed.png' %}" alt="closed">
+							</button>
+						</form>
 					</div>
 				</div>
 				<div class="payments">
@@ -376,7 +382,7 @@
 	</div>
 </div>
 <!-- partial -->
-  <script src='https://unpkg.com/phosphor-icons'></script><script  src="./script.js"></script>
-
+  <script src='https://unpkg.com/phosphor-icons'></script>
+ 
 </body>
 </html>

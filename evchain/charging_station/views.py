@@ -55,5 +55,8 @@ def cshome(request,cs):
         cs_info=Charging_Station.objects.get(user=cs)
         context={'base_cs_info':base_cs_info,
                  'cs_info':cs_info}
+        if request.method == 'POST':
+            status_value = request.POST.get('status')
+            cs_info.status=status_value
     
     return render(request,"charging_station/cs_home.html",context)
