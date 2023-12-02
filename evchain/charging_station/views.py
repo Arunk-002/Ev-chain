@@ -8,11 +8,6 @@ from django.contrib import messages
 # Create your views here.
 
 
-@login_required(redirect_field_name='cslogin')
-def cshome(request):
-    return render(request,"charging_station/cs_home.html")
-
-
 def cs_registration(request):
     if request.method=='POST':
         address=request.POST['place']
@@ -35,15 +30,33 @@ def cs_login(request):
         username = request.POST['username']
         password = request.POST['password']
         cs = authenticate(request, username=username, password=password)
-        print(cs)
         if cs is not None:
             if cs.is_staff:
                 messages.add_message(request,messages.ERROR,"invalid user credentials")
             else:
-                login(request, cs)
-                messages.add_message(request,messages.SUCCESS,"welcome "+cs.username)
-                return redirect('cshome') 
+                cs_id=Charging_Station.objects.get(user=cs)
+                if cs_id.join_request=="Accept":
+                    login(request, cs)
+                    messages.add_message(request,messages.SUCCESS,"welcome "+cs_id.cmp_name)
+                    return redirect('cshome',cs.pk) 
+                else:
+                    messages.add_message(request,messages.ERROR,"Join request is not yet accepted")
+                    return redirect('cslogin')
         else:
             messages.add_message(request,messages.ERROR,"invalid user credentials")
     return render(request, "base/cs_login.html")
 
+
+
+@login_required(redirect_field_name='cslogin')
+def cshome(request,cs):
+    if cs is not None:
+        base_cs_info=BaseUser.objects.get(id=cs)
+        cs_info=Charging_Station.objects.get(user=cs)
+        context={'base_cs_info':base_cs_info,
+                 'cs_info':cs_info}
+        if request.method == 'POST':
+            status_value = request.POST.get('status')
+            cs_info.status=status_value
+    
+    return render(request,"charging_station/cs_home.html",context)
