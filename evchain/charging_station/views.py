@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from charging_station.forms import ChargingStationSignupForm
-from charging_station.models import Charging_Station
+from charging_station.models import Charging_Station,Cs_Offers
 from base.models import BaseUser
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login
@@ -53,10 +53,31 @@ def cshome(request,cs):
     if cs is not None:
         base_cs_info=BaseUser.objects.get(id=cs)
         cs_info=Charging_Station.objects.get(user=cs)
-        context={'base_cs_info':base_cs_info,
-                 'cs_info':cs_info}
         if request.method == 'POST':
             status_value = request.POST.get('status')
             cs_info.status=status_value
-    
+    offers=Cs_Offers.objects.filter(cs=cs_info)
+    context={'base_cs_info':base_cs_info,
+            'cs_info':cs_info,
+            'offers':offers}
     return render(request,"charging_station/cs_home.html",context)
+
+def offer_delete(request,offer_id):
+    current_cs=Charging_Station.objects.get(user=request.user)
+    if offer_id is not None:
+        Cs_Offers.objects.get(id=offer_id).delete()
+        return redirect('cshome',current_cs.pk)
+    return
+
+
+@login_required
+def cs_offer(request):
+    cur_cs=Charging_Station.objects.get(user=request.user)
+    if request.method=='POST':
+        offer=request.POST['offer']
+        duration=request.POST['duration']
+        price=request.POST['price']
+        create_offer=Cs_Offers.objects.create(cs=cur_cs,offer=offer,offer_duration=duration,offer_price=price)
+        create_offer.save()
+        return redirect('cshome',cur_cs.pk)
+    return render(request,"charging_station/cs_offer.html")

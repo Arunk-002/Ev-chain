@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from base.models import BaseUser
 
 # Create your models here.
@@ -23,3 +22,13 @@ class Charging_Station(models.Model):
     
     def __str__(self):
         return self.cmp_name
+    
+class Cs_Offers(models.Model):
+    cs=models.ForeignKey(Charging_Station, on_delete=models.CASCADE)
+    offer=models.CharField(max_length=300,blank=False)
+    offer_post_day=models.DateTimeField(auto_now_add=True)
+    offer_duration=models.DateField()
+    offer_price=models.DecimalField(max_digits=10,decimal_places=2)
+
+    def __str__(self):
+        return self.offer
