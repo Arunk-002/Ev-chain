@@ -1,5 +1,6 @@
 from django.db import models
 from base.models import BaseUser
+from PIL import Image
 
 # Create your models here.
 #join request 
@@ -19,10 +20,11 @@ class Charging_Station(models.Model):
     cmp_name = models.CharField(max_length=255)
     join_request = models.CharField(max_length=60,choices=j_request,default='Reject')
     status = models.CharField(max_length=50,choices=status_choice,default='Unavailable')
+    cs_Img=models.ImageField(default='default.jpg',upload_to="cs_images/")
     
     def __str__(self):
         return self.cmp_name
-    
+            
 class Cs_Offers(models.Model):
     cs=models.ForeignKey(Charging_Station, on_delete=models.CASCADE)
     offer=models.CharField(max_length=300,blank=False)
@@ -32,3 +34,5 @@ class Cs_Offers(models.Model):
 
     def __str__(self):
         return self.offer
+
+
