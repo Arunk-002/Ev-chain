@@ -32,7 +32,7 @@ class BaseUser(AbstractUser):
     email=models.EmailField()
     phone = models.CharField(max_length=10,validators=[regx_phone])
     address=models.CharField(max_length=200,blank=False)
-    location=models.CharField(max_length=200,blank=False)
+   
     
 
 

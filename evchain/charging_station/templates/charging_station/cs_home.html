@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
     <title >{{ cs_info.cmp_name|upper }} Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="{% static 'charging_station/cs_style.css' %}">
+    <link rel="stylesheet" href="{% static 'charging_station/css/cs_style.css' %}">
 
 </head>
 <body>
@@ -69,7 +69,7 @@
 			<button class="user-profile">
 				<span>{{ cs_info.cmp_name|upper }}</span>
 				<span>
-					<img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+					<img src="{{cs_info.cs_Img.url}}" alt="">
 				</span>
 			</button>
 			<div class="app-header-actions-buttons">
@@ -232,51 +232,25 @@
 					</button>
 				</div> -->
 				<div class="tiles">
-					<article class="tile">
-						<div class="tile-header">
-							<i class="ph-lightning-light"></i>
-							<h3>
-								<span>Electricity</span>
-								<span>UrkEnergo LTD.</span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="ph-caret-right-bold"></i>
-							</span>
-						</a>
-					</article>
-					<article class="tile">
-						<div class="tile-header">
-							<i class="ph-fire-simple-light"></i>
-							<h3>
-								<span>Heating Gas</span>
-								<span>Gazprom UA</span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="ph-caret-right-bold"></i>
-							</span>
-						</a>
-					</article>
-					<article class="tile">
-						<div class="tile-header">
-							<i class="ph-file-light"></i>
-							<h3>
-								<span>Tax online</span>
-								<span>Kharkov 62 str.</span>
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to service</span>
-							<span class="icon-button">
-								<i class="ph-caret-right-bold"></i>
-							</span>
-						</a>
-					</article>
+					<a href="{% url 'csoffer' %}">
+						<img  class="offer-image" src="{% static 'charging_station/images/add.png' %}" alt="add offers">
+					</a>
+					{% for offer in offers %}
+						<article class="tile">
+							<div class="tile-header">
+								<img class="offer-icon" src="{% static 'charging_station/images/tag.png' %}" alt="offer image">
+								<h3>
+									<span>{{offer.offer}}</span>
+									<span>{{offer.offer_post_day}}</span>
+								</h3>
+							</div>
+							<span class="price">{{ offer.offer_price }}</span>
+							
+							<a href="{% url 'offerdelete' offer.id %}">
+								<img class="delete-img" src="{% static 'charging_station/images/delete.png' %}" alt="delete offer">
+							</a>
+						</article>
+					{% endfor %}
 				</div>
 				<div class="service-section-footer">
 					<p>Read the requirements correctly.</p>
@@ -383,6 +357,8 @@
 </div>
 <!-- partial -->
   <script src='https://unpkg.com/phosphor-icons'></script>
+
+	
  
 </body>
 </html>

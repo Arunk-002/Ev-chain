@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'charging_station/css/cs_offer.css' %}">
+    <title>Add offer</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Add Offer</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input class="offer-description" type="text" name="offer" placeholder="Offer description" />
+            <input class="offer-duration" type="date" pattern="\d{4}-\d{2}-\d{2} " name="duration" placeholder="Offer duration" />
+            <input class="offer-duration" type="number" name="price" placeholder="Price">
+            <button type="submit">
+                <img class="submit-img" src="{% static 'charging_station/images/offer_add.png' %}" alt="">
+            </button>
+        </form>
+        
+    </div>
+</body>
+</html>

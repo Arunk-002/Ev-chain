@@ -34,10 +34,11 @@ body::before {
   
 /* --------------------------------------------- */
 h1 {
-	font-weight: bold;
-	margin: 0;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 9px;
 }
 
 p {
@@ -81,7 +82,7 @@ form {
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 50px;
-	height: 100%;
+	
 	text-align: center;
 }
 
@@ -101,7 +102,7 @@ input {
 	position: relative;
 	overflow: hidden;
 	width: 480px;
-    height: 580px;
+    height: 700px;
 	max-width: 100%;
 	min-height: 480px;
 }
@@ -124,7 +125,15 @@ input {
     width: 100%;
     z-index: 2;
 }
+.row {
+    display: flex;
+    justify-content: space-between;
+}
 
+.col {
+    flex: 1;
+    margin-right: 10px; 
+}
 
 
 
