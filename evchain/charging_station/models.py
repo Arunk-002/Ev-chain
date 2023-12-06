@@ -21,6 +21,8 @@ class Charging_Station(models.Model):
     join_request = models.CharField(max_length=60,choices=j_request,default='Reject')
     status = models.CharField(max_length=50,choices=status_choice,default='Unavailable')
     cs_Img=models.ImageField(default='default.jpg',upload_to="cs_images/")
+    lat=models.CharField(max_length=200,blank=False,default="Nil")
+    long=models.CharField(max_length=200,blank=False,default="Nil")
     
     def __str__(self):
         return self.cmp_name

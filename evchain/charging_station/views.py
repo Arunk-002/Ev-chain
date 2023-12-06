@@ -5,7 +5,7 @@ from base.models import BaseUser
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
-from PIL import Image
+
 # Create your views here.
 
 
@@ -18,15 +18,20 @@ def cs_registration(request):
         username=request.POST['username']
         password=request.POST['password']
         image=request.POST['image']
+        lattitude=request.POST['lattitude']
+        longitude=request.POST['longitude']
         user=BaseUser.objects.create_user(username=username,password=password,email=email,phone=phone,address=address)
         user.save()
-        c_s = Charging_Station.objects.create(user=user, cmp_name=name, join_request='Reject', status='Unavailable',cs_Img=image)
+        c_s = Charging_Station.objects.create(user=user, cmp_name=name, join_request='Reject', status='Unavailable',cs_Img=image,lat=lattitude,long=longitude)
         c_s.save()
         return redirect('cslogin')
     else:
         form = ChargingStationSignupForm()
 
     return render(request,"base/cs_registration.html",{'form':form})
+
+
+
 def cs_login(request):
     if request.method == 'POST':
         username = request.POST['username']
