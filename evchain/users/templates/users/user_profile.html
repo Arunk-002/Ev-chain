@@ -1,0 +1,60 @@
+{%  extends "users/user_base_temp.html" %}
+{%  load static %}
+{% block body %}
+{% block name%}{{user|upper}}{% endblock %}
+    <section class=" d-lg-flex profile mt-5" id="user-intro">
+        <div class="container ">
+            <h1 class="text-center">Your Profile</h1>
+            <div class="container form-cont">
+                <form method="post" class="profile-form justify-content-evenly">
+                    {% csrf_token %}
+                    <div class="container">
+                        <div class="continer row mb-3">
+                            <div class="col-sm">
+                                <label >Place</label>
+                            </div>
+                            <div class="col-sm">
+                                <input type="text" name="place" id="place">
+                            </div>
+                        </div>
+                        <div class="continer row mb-3">
+                            <div class="col-sm">
+                                <label >vehicle type</label>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-check">
+                                    <select name="vehicle">
+                                        <option value="Four Wheeler">Four Wheeler</option>
+                                        <option value="Two Wheeler">Two Wheeler</option> 
+                                    </select>
+                                </div>
+                            </div>                       
+                        </div>
+                        <div class="continer row mb-3">
+                            <div class="col-sm">
+                                <label for="">vehicle Number</label>
+                            </div>
+                            <div class="col-sm">
+                                <input type="text" name="vehicleno" id="vehicle-no">
+                            </div>                       
+                        </div>
+                        <div class="continer row mb-3">
+                            <div class="col-sm">
+                                <label for="">upload new image</label>
+                            </div>
+                            <div class="col-sm">
+                                <input type="file" name="image" >
+                            </div>                       
+                        </div>
+                    </div>
+                    <div class="continer row mb-3 justify-content-center">                       
+                        <button>submit</button>                   
+                    </div>
+                </div>
+                    
+                </form>
+            </div>
+        </div>
+               
+    </section>
+{% endblock %}
